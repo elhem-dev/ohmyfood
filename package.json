@@ -1,0 +1,22 @@
+{
+  "name": "ohmyfood",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elhem-dev/ohmyfood.git"
+  },
+  "author": "MANSOUR Elhem",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elhem-dev/ohmyfood/issues"
+  },
+  "homepage": "https://github.com/elhem-dev/ohmyfood#readme",
+  "devDependencies": {
+    "sass": "^1.51.0"
+  }
+}
