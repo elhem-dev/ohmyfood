@@ -20,3 +20,38 @@ main .city {
     text-align: center;
     padding: 0.5rem;
 }
+
+/*explorer*/
+.explorer {
+    text-align: center;
+    flex-direction: column;
+}
+
+.explorer.h2 {
+    margin-top: 2rem;
+    font-size: 2rem;
+}
+
+.explorer.p {
+    font-size: 1rem;
+}
+
+.explorer button {
+    background-image: linear-gradient(0deg, rgba(147, 86, 220, .9), rgba(255, 121, 218, .9));
+    border: none;
+    border-radius: 2rem;
+    box-shadow: 2px 1px 8px -3px #7e7e7e;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-size: 1rem;
+    font-weight: 300;
+    margin-top: 1rem;
+    padding: 1rem 2rem;
+    transition: transform .2s;
+}
+
+.explorer button:hover {
+    transform: scale(1.02);
+    opacity: 0.9;
+}
