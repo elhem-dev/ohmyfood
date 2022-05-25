@@ -3,6 +3,24 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
+main {
+  margin: 0 2rem;
+}
+
+h2 {
+  margin: 2rem 0;
+}
+
+h3 {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 header {
   font-family: "Shrikhand", cursive;
   text-align: center;
@@ -84,7 +102,8 @@ header {
   place-items: center;
   border-radius: 50%;
   position: absolute;
-  bottom: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
   left: -1rem;
 }
 .tuto li:hover {
@@ -94,6 +113,80 @@ header {
   margin-right: 1rem;
   color: darkgray;
   font-size: 1.5rem;
+}
+
+.menu {
+  background-color: #f6f6f6;
+  margin-bottom: 2rem;
+}
+.menu .menu__cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  flex-wrap: wrap;
+  border-radius: 1rem 1rem 0 0;
+}
+@media (max-width: 1000px) {
+  .menu .menu__cards {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+.menu .menu__cards .new {
+  position: relative;
+}
+.menu .menu__cards .new::before {
+  content: "Nouveau";
+  position: absolute;
+  background-color: aqua;
+  display: grid;
+  place-items: center;
+  height: 2rem;
+  width: 5rem;
+  right: 1rem;
+  top: 1rem;
+}
+.menu .card__image {
+  object-fit: cover;
+  width: 100%;
+  height: 15rem;
+  border-radius: 1rem 1rem 0 0;
+}
+.menu .card__description {
+  position: relative;
+  background-color: white;
+}
+.menu .card__description h3,
+.menu .card__description p {
+  padding: 0.3rem;
+  margin: 0;
+}
+.menu .card__description i {
+  font-size: 2rem;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+}
+.menu .card__description .fa-solid {
+  opacity: 0;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(0deg, rgba(147, 86, 220, 0.9), rgba(255, 121, 218, 0.9));
+  transition: all 500ms ease-in-out;
+}
+.menu .card__description .fa-solid:hover.fa-solid {
+  opacity: 1;
+}
+
+footer {
+  background-color: #353535;
+  padding: 0 1rem;
+  color: white;
+}
+footer h2 {
+  font-family: shrikhand, "sans serif";
+  font-weight: 200;
 }
 
 /*explorer*/
