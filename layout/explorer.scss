@@ -2,9 +2,7 @@
 @use "../utils/linear-gradient.scss";
 .explorer {
     text-align: center;
-    flex-direction: column;
-
-
+margin: 2rem;
 &.h2 {
     margin-top: 2rem;
     font-size: 2rem;

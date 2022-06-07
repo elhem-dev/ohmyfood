@@ -1,68 +1,70 @@
 @use "../utils/linear-gradient.scss";
-.menu{
-    background-color: #f6f6f6;
-    margin-bottom: 2rem;
-  .menu__cards{
-        display: grid;
-        grid-template-columns: repeat(2,1fr) ;
-        gap:2rem;
-        flex-wrap: wrap;
-        border-radius: 1rem 1rem 0 0;
-        @media (max-width:1000px){
-            grid-template-columns: repeat(1,1fr)
-        }
-    .new{
-        
-        position: relative;
-    } 
-    .new::before{
-        content: "Nouveau";
-        position: absolute;
-        background-color: aqua;
-        display: grid;
-        place-items:center;
-        height: 2rem;
-        width: 5rem;
-        right: 1rem;
-        top:1rem;
-    }   
-} 
-  .card{
-   
-    &__image{
-        object-fit: cover;
-        width: 100%;
-        height:15rem;
-    border-radius: 1rem 1rem 0 0;    
-    }
-    &__description{
-        position:relative;
-        background-color: white;
-        h3,
-        p {
-            padding:0.3rem;
-            margin: 0;
-
-        }
-        i {
-            font-size: 2rem;
+#homepage {
+    .menu{
+        background-color: #f6f6f6;
+        margin-bottom: 2rem;
+      .menu__cards{
+            display: grid;
+            grid-template-columns: repeat(2,1fr) ;
+            gap:2rem;
+            flex-wrap: wrap;
+            border-radius: 1rem 1rem 0 0;
+            @media (max-width:1000px){
+                grid-template-columns: repeat(1,1fr)
+            }
+        .new{
+            
+            position: relative;
+        } 
+        .new::before{
+            content: "Nouveau";
             position: absolute;
-            right:1rem;
+            background-color: aqua;
+            display: grid;
+            place-items:center;
+            height: 2rem;
+            width: 5rem;
+            right: 1rem;
             top:1rem;
+        }   
+    } 
+      .card{
+       
+        &__image{
+            object-fit: cover;
+            width: 100%;
+            height:15rem;
+        border-radius: 1rem 1rem 0 0;    
         }
-        .fa-solid{
-            opacity: 0;
-            color:transparent;
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-           @include linear-gradient.gradient;
-            transition: all 500ms ease-in-out;
-            &:hover.fa-solid{
-            opacity: 1;
+        &__description{
+            position:relative;
+            background-color: white;
+            h3,
+            p {
+                padding:0.3rem;
+                margin: 0;
+    
+            }
+            i {
+                font-size: 2rem;
+                position: absolute;
+                right:1rem;
+                top:1rem;
+            }
+            .fa-solid{
+                opacity: 0;
+                color:transparent;
+                background-clip: text;
+                -webkit-background-clip: text;
+                color: transparent;
+               @include linear-gradient.gradient;
+                transition: all 500ms ease-in-out;
+                &:hover.fa-solid{
+                opacity: 1;
+            }
+            }
         }
         }
+    
     }
-    }
-
 }
