@@ -1,31 +1,40 @@
-@use "../utils/box-shadow.scss";
-@use "../utils/linear-gradient.scss";
+@use "../utils/mixins";
+
 .explorer {
     text-align: center;
 margin: 2rem;
-&.h2 {
-    margin-top: 2rem;
+& h2 {
+    margin: 1rem;
     font-size: 2rem;
+
 }
-&.p {
+& p {
     font-size: 1rem;
 }
 & button {
-   @include linear-gradient.gradient;
-    border: none;
-    border-radius: 2rem;
-   @include box-shadow.base-shadow;
-    color: #fff;
-    cursor: pointer;
-    font-size: 1.5rem;
-    font-size: 1rem;
-    font-weight: 300;
-    margin-top: 1rem;
-    padding: 1rem 2rem;
-    transition: transform .2s;
+    @include mixins.base-button;
+   
 }
-& button:hover {
-   transform: scale(1.02);
+
+}
+.loader {
+    display: grid;
+    place-items: center;
+    position:fixed;
+    background-color: #ffffff;
+    height: 100vh;
+    inset:0;
+    z-index:1;
     opacity: 0.9;
+animation: disappear 200ms forwards;
+animation-delay:3s ;
+    transform-origin: top;
 }
+@keyframes disappear {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0);
+    }
 }

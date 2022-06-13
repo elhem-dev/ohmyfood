@@ -1,5 +1,5 @@
-@use"../utils/box-shadow.scss";
-@use "../utils/zoom.scss";
+@use"../utils/mixins";
+
 .tuto{
     counter-reset: steps;
     & ol{
@@ -16,7 +16,7 @@ border-radius: 1rem;
     &::before{
         counter-increment: steps;
         content: counter(steps);
-        background-color: blueviolet;
+        background-color: #9356dc;
         color:white;
         width: 2rem;
         height:2rem;
@@ -34,10 +34,14 @@ border-radius: 1rem;
     padding:1.5rem 2rem;
     border-radius: 1rem;
     flex-grow: 1;
-    @include box-shadow.base-shadow;
+    @include  mixins.base-shadow;
     &:hover{
-    @include zoom.transform-zoom;;
+    @include  mixins.transform-zoom;;
+
+    i::before {
+      color:#9356dc;
     }
+}
 & i.fa-solid{
    margin-right:1rem;
    color:darkgray;

@@ -1,11 +1,19 @@
-@use "../../utils/linear-gradient.scss";
-@use "../../utils/box-shadow.scss";
-@use "../../utils/animation.scss";
+@use "../../utils/mixins.scss";
+@use "../../utils/animations.scss";
+
 body {
     background-color:  #f6f6f6;
 }
 #page-resto {
- 
+    header::before {
+        @include mixins.font-awesome($font-weight: 900);
+        content: "\f060";
+        left: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 20px;
+        
+      }
     .menu img {
         display: block;
         width: 100%;
@@ -14,36 +22,14 @@ body {
     }
     
     .resto__tiltle {
-       
-        margin-top: -2rem; 
-        border-radius: 2rem 2rem 0 0;
+        margin-top: -3rem; 
         h2 {
-        font-family: Shrikhand,"cursive";
-        padding: 2rem 1rem;
-        border-radius: 2rem 2rem 0 0;
-        background-color:  #f6f6f6;
-        position: relative;
-        i {
-            font-size: 2rem;
-            position: absolute;
-            right:1rem;
-            top:1rem;
-        }
-        .fa-solid {
-            opacity: 0;
-            color:transparent;
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-           @include linear-gradient.gradient;
-            transition: all 500ms ease-in-out;
-            &:hover.fa-solid {
-            opacity: 1;
-            }
-            
-        }
-       
-        }
+            font-family: "Shrikhand", "cursive";
+            padding: 2rem 1rem;
+            @include mixins.heart-animated;
+            border-radius: 2rem 2rem 0 0;
+            background-color: #f6f6f6;
+        }   
     }
     
 .resto-main {
@@ -60,6 +46,7 @@ body {
       h3 {
           font-weight: 450;
           position: relative;
+          margin-bottom: 1rem;
           &::after {
               content: "";
               position: absolute;
@@ -73,16 +60,21 @@ body {
     .menus__category {
        
        overflow: hidden;
-       
-       border-radius: 1rem;
-       margin: 0.5rem;
+      
+
+
         .menu-item {
+            @for $i from 1 through 3 {
+                &:nth-child(#{$i}) {
+                 animation-delay: 200ms * $i;}}
         display: flex;
         overflow: hidden;
         margin: 0.5rem;
         background-color: white;
         border-radius: 1rem;
-        @include box-shadow.base-shadow; 
+        animation: appear 3s;
+        animation-fill-mode: both;
+        @include mixins.base-shadow; 
         .menu-item__price {
                 margin-left: auto;
                 font-weight: 900;
@@ -124,10 +116,10 @@ body {
                 .menu-item__check {
                     margin-right: 0;
             }
-                i{
-                    @include animation.quarterspin;
-                    animation: quarterspin 0.5s ease-in-out;
-                }
+               i {
+                   @include animations.quarterspin;
+                   animation: quarterspin 0.5s ease-in-out;
+               }
             }
             
         }
@@ -138,26 +130,10 @@ section.order {
     display: grid;
     place-items: center;
     & button {
-        @include linear-gradient.gradient;
-         border: none;
-         border-radius: 2rem;
-        @include box-shadow.base-shadow;
-         color: #fff;
-         cursor: pointer;
-         font-size: 1.5rem;
-         font-size: 1rem;
-         font-weight: 300;
-         margin-top: 1rem;
-         padding: 1rem 2rem;
-         transition: transform .2s;
-     }
-     & button:hover {
-        transform: scale(1.02);
-         opacity: 0.9;
-     }
+        @include mixins.base-button;
      }
 }
- 
+}
 
     
     

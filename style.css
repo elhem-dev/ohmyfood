@@ -4,7 +4,12 @@ body {
 }
 
 main {
-  padding: 0 2rem;
+  padding: 0 7rem;
+}
+@media (max-width: 1000px) {
+  main {
+    padding: 0 1rem;
+  }
 }
 
 h1,
@@ -45,11 +50,11 @@ header {
   text-align: center;
   margin: 2rem;
 }
-.explorer.h2 {
-  margin-top: 2rem;
+.explorer h2 {
+  margin: 1rem;
   font-size: 2rem;
 }
-.explorer.p {
+.explorer p {
   font-size: 1rem;
 }
 .explorer button {
@@ -71,6 +76,28 @@ header {
   opacity: 0.9;
 }
 
+.loader {
+  display: grid;
+  place-items: center;
+  position: fixed;
+  background-color: #ffffff;
+  height: 100vh;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.9;
+  animation: disappear 200ms forwards;
+  animation-delay: 3s;
+  transform-origin: top;
+}
+
+@keyframes disappear {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
 .tuto {
   counter-reset: steps;
 }
@@ -96,7 +123,7 @@ header {
 .tuto li::before {
   counter-increment: steps;
   content: counter(steps);
-  background-color: blueviolet;
+  background-color: #9356dc;
   color: white;
   width: 2rem;
   height: 2rem;
@@ -110,6 +137,9 @@ header {
 }
 .tuto li:hover {
   transform: scale(1.05);
+}
+.tuto li:hover i::before {
+  color: #9356dc;
 }
 .tuto li i.fa-solid {
   margin-right: 1rem;
@@ -148,6 +178,7 @@ header {
   top: 1rem;
 }
 #homepage .menu .card__image {
+  margin-top: 1rem;
   object-fit: cover;
   width: 100%;
   height: 15rem;
@@ -156,29 +187,58 @@ header {
 #homepage .menu .card__description {
   position: relative;
   background-color: white;
+  border-radius: 0 0 1rem 1rem;
 }
-#homepage .menu .card__description h3,
-#homepage .menu .card__description p {
-  padding: 0.3rem;
-  margin: 0;
-}
-#homepage .menu .card__description i {
+#homepage .menu .card__description::before {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiazed;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 400;
+  content: "\f004";
   font-size: 2rem;
   position: absolute;
   right: 1rem;
-  top: 1rem;
+  top: 50%;
+  background-color: white;
+  transform: translateY(-50%);
+  color: inherit;
+  background-clip: text;
+  -webkit-background-clip: text;
+  opacity: 1;
+  transition: all 500ms ease-in-out;
 }
-#homepage .menu .card__description .fa-solid {
-  opacity: 0;
+#homepage .menu .card__description::after {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiazed;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f004";
+  font-size: 2rem;
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  background-color: white;
+  transform: translateY(-50%);
   color: transparent;
   background-clip: text;
   -webkit-background-clip: text;
-  color: transparent;
-  background-image: linear-gradient(0deg, rgba(147, 86, 220, 0.9), rgba(255, 121, 218, 0.9));
+  opacity: 0;
   transition: all 500ms ease-in-out;
+  background-image: linear-gradient(0deg, rgba(147, 86, 220, 0.9), rgba(255, 121, 218, 0.9));
 }
-#homepage .menu .card__description .fa-solid:hover.fa-solid {
+#homepage .menu .card__description:hover::after {
   opacity: 1;
+}
+#homepage .menu .card h3,
+#homepage .menu .card p {
+  padding: 0.3rem;
+  margin: 0;
 }
 
 footer {
@@ -195,10 +255,35 @@ footer p {
   padding: 0.2rem;
 }
 
+@keyframes appear {
+  0% {
+    transform: translateY(50%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 body {
   background-color: #f6f6f6;
 }
 
+#page-resto header::before {
+  display: inline-block;
+  position: absolute;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f060";
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+}
 #page-resto .menu img {
   display: block;
   width: 100%;
@@ -206,32 +291,61 @@ body {
   object-fit: cover;
 }
 #page-resto .resto__tiltle {
-  margin-top: -2rem;
-  border-radius: 2rem 2rem 0 0;
+  margin-top: -3rem;
 }
 #page-resto .resto__tiltle h2 {
-  font-family: Shrikhand, "cursive";
+  font-family: "Shrikhand", "cursive";
   padding: 2rem 1rem;
+  position: relative;
+  background-color: white;
+  border-radius: 0 0 1rem 1rem;
   border-radius: 2rem 2rem 0 0;
   background-color: #f6f6f6;
-  position: relative;
 }
-#page-resto .resto__tiltle h2 i {
+#page-resto .resto__tiltle h2::before {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiazed;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 400;
+  content: "\f004";
   font-size: 2rem;
   position: absolute;
   right: 1rem;
-  top: 1rem;
+  top: 50%;
+  background-color: white;
+  transform: translateY(-50%);
+  color: inherit;
+  background-clip: text;
+  -webkit-background-clip: text;
+  opacity: 1;
+  transition: all 500ms ease-in-out;
 }
-#page-resto .resto__tiltle h2 .fa-solid {
-  opacity: 0;
+#page-resto .resto__tiltle h2::after {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiazed;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f004";
+  font-size: 2rem;
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  background-color: white;
+  transform: translateY(-50%);
   color: transparent;
   background-clip: text;
   -webkit-background-clip: text;
-  color: transparent;
-  background-image: linear-gradient(0deg, rgba(147, 86, 220, 0.9), rgba(255, 121, 218, 0.9));
+  opacity: 0;
   transition: all 500ms ease-in-out;
+  background-image: linear-gradient(0deg, rgba(147, 86, 220, 0.9), rgba(255, 121, 218, 0.9));
 }
-#page-resto .resto__tiltle h2 .fa-solid:hover.fa-solid {
+#page-resto .resto__tiltle h2:hover::after {
   opacity: 1;
 }
 #page-resto .resto-main {
@@ -250,6 +364,7 @@ body {
 #page-resto .menus h3 {
   font-weight: 450;
   position: relative;
+  margin-bottom: 1rem;
 }
 #page-resto .menus h3::after {
   content: "";
@@ -262,8 +377,6 @@ body {
 }
 #page-resto .menus .menus__category {
   overflow: hidden;
-  border-radius: 1rem;
-  margin: 0.5rem;
 }
 #page-resto .menus .menus__category .menu-item {
   display: flex;
@@ -271,7 +384,18 @@ body {
   margin: 0.5rem;
   background-color: white;
   border-radius: 1rem;
+  animation: appear 3s;
+  animation-fill-mode: both;
   box-shadow: 2px 1px 8px -3px #7e7e7e;
+}
+#page-resto .menus .menus__category .menu-item:nth-child(1) {
+  animation-delay: 200ms;
+}
+#page-resto .menus .menus__category .menu-item:nth-child(2) {
+  animation-delay: 400ms;
+}
+#page-resto .menus .menus__category .menu-item:nth-child(3) {
+  animation-delay: 600ms;
 }
 #page-resto .menus .menus__category .menu-item .menu-item__price {
   margin-left: auto;
