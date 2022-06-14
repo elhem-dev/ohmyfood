@@ -60,11 +60,8 @@ body {
     .menus__category {
        
        overflow: hidden;
-      
-
-
         .menu-item {
-            @for $i from 1 through 3 {
+            @for $i from 1 through 4 {
                 &:nth-child(#{$i}) {
                  animation-delay: 200ms * $i;}}
         display: flex;
@@ -101,11 +98,12 @@ body {
             transition: margin-right 0.5s;
             
               i {
+                
                 display:grid;
                 place-items: center;
                 background: white;
-                aspect-ratio: 1;
-                width:2rem;
+               height:1rem;
+                width:1rem;
                 border-radius: 1rem;
                color: aquamarine;
 

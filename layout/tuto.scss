@@ -2,11 +2,10 @@
 
 .tuto{
     counter-reset: steps;
-    & ol{
+& ol{
         display: flex;
         gap:2rem;
-        
-border-radius: 1rem;
+        border-radius: 1rem;
     @media(max-width:1000px){
         flex-direction: column;
     }
@@ -14,8 +13,8 @@ border-radius: 1rem;
 & li{
     position:relative;
     &::before{
-        counter-increment: steps;
         content: counter(steps);
+        counter-increment: steps;
         background-color: #9356dc;
         color:white;
         width: 2rem;
@@ -37,7 +36,7 @@ border-radius: 1rem;
     @include  mixins.base-shadow;
     &:hover{
     @include  mixins.transform-zoom;;
-
+    background-color: lighten(#9356dc, 35%);
     i::before {
       color:#9356dc;
     }
